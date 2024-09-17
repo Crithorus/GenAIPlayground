@@ -1,36 +1,14 @@
-import aws_provider as aws_provider_bc 
-import cloud_providers as cloud_providers_bc
-import azure_provider as azure_provider_bc
+import aws_provider as AWSProvider
+import google_provider as GoogleProvider
+import azure_provider as AzureProvider
 import openai_provider as OpenAIProvider
 
-
-
-
-        
-def get_llm_invokers(self,provider_name):
-        cloud_provider = self.get_cloud_provider(provider_name)
-        return cloud_provider
 
 class CloudProviderInterface:
     def invoke_llm(self,model_name,model_params,prompt):
         raise NotImplementedError("Subclasses must implement invoke_llm method")
     
-class AWSProvider(CloudProviderInterface):
-    def invoke_llm(self,model_name,model_params,promp):
-        raise NotImplementedError("Subclasses must implement invoke_llm method")
-    
-class AzureProvider(CloudProviderInterface):
-    def invoke_llm(self,model_name,model_params,promp):
-        raise NotImplementedError("Subclasses must implement invoke_llm method")
-    
-# class OpenAIProvider(CloudProviderInterface):
-#     def invoke_llm(self,model_name,model_params,promp):
-#         raise NotImplementedError("Subclasses must implement invoke_llm method")    
-    
-class GoogleProvider(CloudProviderInterface):
-    def invoke_llm(self,model_name,model_params,promp):
-        raise NotImplementedError("Subclasses must implement invoke_llm method")
-    
+
 
 class CloudProviderFactory:
     def get_cloud_provider(self,provider_name):
