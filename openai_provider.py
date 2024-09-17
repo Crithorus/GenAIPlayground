@@ -15,20 +15,6 @@ class OpenAIProvider(CloudProviderInterface):
     def call_openai_gpt(prompt,model_params,model_name):
         try:
 
-            # max_tokens = model_params.get("max_tokens",150)
-            # n = model_params.get("n",1)
-            # stop = model_params.get("stop",None)
-            # temperature = model_params.get("temperature",0.7)
-
-            # response = openai.Completion.create(
-            #     engine= model_name,  # or "gpt-3.5-turbo" for GPT-3.5
-            #     prompt=prompt,
-            #     max_tokens=max_tokens,  # Adjust the token limit based on your needs
-            #     n=n,            # Number of completions to generate
-            #     stop=stop,       # Define stopping criteria (optional)
-            #     temperature=temperature  # Adjust the creativity level of the model
-            # )
-
             llm = OpenAI(
                 model_name = model_params.get("model_name"),
                 temperature = model_params.get("temperature",0.7),
